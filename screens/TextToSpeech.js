@@ -8,7 +8,7 @@ import ControlBox from '../components/ControlBox';
 import { TextToSpeechContext } from '../context/TextToSpeechContext';
 
 const TextToSpeech = () => {
-  const { text, saveText, deleteSavedText, savedCount, convertTextToSpeech, savedText } = useContext(TextToSpeechContext);
+  const { text, saveText, deleteSavedText, savedCount, convertTextToSpeech, savedText ,convertSavedTextToSpeech} = useContext(TextToSpeechContext);
   console.log(text);
   const [visible, setVisible] = useState(false);
 
@@ -25,13 +25,24 @@ const TextToSpeech = () => {
         <View style={styles.bottomContentContainer}>
           <Text style={styles.bottomContainerText}>{item.text}</Text>
           <View style={styles.bottomContainerIconContainer}>
-            <AntDesign name="delete" size={24} color="white" onPress={() => deleteSavedText(item)} />
-            <AntDesign name="play" size={24} color="white" onPress={() => convertTextToSpeech(item)} />
+            <AntDesign
+              name="delete"
+              size={24}
+              color="white"
+              onPress={() => deleteSavedText(item)}
+            />
+            <AntDesign
+              name="play"
+              size={24}
+              color="white"
+              onPress={() => convertTextToSpeech(item)}
+            />
           </View>
         </View>
       </View>
     );
   };
+  
 
   return (
     <SafeAreaView style={styles.container}>

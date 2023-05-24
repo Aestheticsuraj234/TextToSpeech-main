@@ -137,22 +137,63 @@ export const TextToSpeechProvider = ({ children }) => {
       
       
     // write a function for deleting the text with their states when some one clic on delete
-   
-    const deleteSavedText = async () => {
+    const deleteSavedText = async (item) => {
         try {
-          await AsyncStorage.removeItem('@text');
-          setSavedText([]);
-          setSavedcount(0);
-          setSaved(false);
+          // Retrieve the saved text from AsyncStorage
+          const savedTextData = await AsyncStorage.getItem('@text');
+          if (savedTextData) {
+            // Parse the saved text data into an array
+            const savedTextArray = JSON.parse(savedTextData);
+            
+            // Find the index of the item to delete
+            const itemIndex = savedTextArray.findIndex((textItem) => textItem.id === item.id);
+            
+            if (itemIndex !== -1) {
+              // Remove the item from the array
+              savedTextArray.splice(itemIndex, 1);
+              
+              // Update AsyncStorage with the modified array
+              await AsyncStorage.setItem('@text', JSON.stringify(savedTextArray));
+              
+              // Update state variables accordingly
+              setSavedText(savedTextArray);
+              setSavedcount(savedTextArray.length);
+              setSaved(false);
+            }
+          }
         } catch (e) {
           console.log(e);
         }
-      }
+      };
+
+      const convertSavedTextToSpeech = async (item) => {
+        // Checking if the device is connected to the internet
+      
+        // Checking if the device is iOS
+        if (Platform.OS === "ios") {
+           Speech.speak(item.text, {
+            language: item.language,
+            pitch: item.pitch,
+            rate: item.rate,
+            volume: item.volume,
+          });
+        } else {
+           Speech.speak(item.text, {
+            language: item.language,
+            pitch: item.pitch,
+            rate: item.rate,
+            volume: item.volume,
+          });
+        }
+      };
+      
+      
     
 
 
     return (
-        <TextToSpeechContext.Provider value={{ text, setText, copyText, deleteText, convertTextToSpeech, handlePitchChange, handleSpeedChange, handleVolumeChange, rate, pitch, language,saveText,loadText,deleteSavedText ,savedCount,savedText}}>
+        <TextToSpeechContext.Provider value={{ text, setText, copyText, deleteText, convertTextToSpeech, handlePitchChange, handleSpeedChange, handleVolumeChange, rate, pitch, language,saveText,loadText,deleteSavedText ,savedCount,savedText,convertSavedTextToSpeech
+        }}>
             {children}
         </TextToSpeechContext.Provider>
     )
