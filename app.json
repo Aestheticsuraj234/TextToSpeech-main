@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -31,8 +31,8 @@
       [
         "@react-native-voice/voice",
         {
-          "microphonePermission": "Allow Voice to Text Tutorial to access the microphone",
-          "speechRecognitionPermission": "Allow Voice to Text Tutorial to securely recognize user speech"
+          "microphonePermission": "Allow ExpoSpeech to access the microphone",
+          "speechRecognitionPermission": "Allow ExpoSpeech to securely recognize user speech"
         }
       ]
     ],
