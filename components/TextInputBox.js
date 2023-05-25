@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 72,
     padding: 10,
+    width:'100%'
   },
   iconDelete: {
     width: 50,

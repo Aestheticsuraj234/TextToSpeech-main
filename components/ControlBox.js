@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+// import { FontAwesome } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
 import { TextToSpeechContext } from '../context/TextToSpeechContext';
 

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ExpoSpeech",
+    "name": "Speech",
     "slug": "speech",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,15 +27,6 @@
       ],
       "package": "com.xsur234.speech"
     },
-    "plugins": [
-      [
-        "@react-native-voice/voice",
-        {
-          "microphonePermission": "Allow ExpoSpeech to access the microphone",
-          "speechRecognitionPermission": "Allow ExpoSpeech to securely recognize user speech"
-        }
-      ]
-    ],
     "extra": {
       "eas": {
         "projectId": "247fc107-be70-4e72-b024-f0abed776af4"
