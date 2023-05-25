@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "ExpoSpeech",
-    "slug": "ExpoSpeech",
+    "slug": "speech",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#242334"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,11 +20,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+        "backgroundColor": "#242334"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.xsur234.speech"
     },
     "plugins": [
       [
@@ -34,6 +35,12 @@
           "speechRecognitionPermission": "Allow Voice to Text Tutorial to securely recognize user speech"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "247fc107-be70-4e72-b024-f0abed776af4"
+      }
+    },
+    "owner": "xsur234"
   }
 }
